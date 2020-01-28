@@ -15,12 +15,17 @@ body .container {
   height: 100%;
   display: inline-block;
   overflow: hidden;
+  background-image: linear-gradient(to top right, #dffff6, #6fd7ff);
 }
 body .container .center {
   width: 275px;
-  height: 550px;
+  height: 490px;
   background-image: linear-gradient(to top right, #f9a743, #f9db5f);
   overflow: hidden;
+  border-radius: 20px 20px 10px 10px;
+  -webkit-box-shadow: 14px 18px 26px -10px rgba(0, 0, 0, 0.51);
+  -moz-box-shadow: 14px 18px 26px -10px rgba(0, 0, 0, 0.51);
+  box-shadow: 14px 18px 26px -10px rgba(0, 0, 0, 0.51);
   position: relative;
   top: 50%;
   left: 50%;
@@ -49,11 +54,15 @@ body .container .center .ear--right {
 }
 body .container .center .face {
   width: 200px;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   margin: 80px auto 10px;
   align-items: center;
+  --rotate-head: 0deg;
+  transform: rotate(var(--rotate-head));
+  transition: transform 0.2s;
+  transform-origin: center 20px;
 }
 body .container .center .face .eye {
   width: 25px;
@@ -114,6 +123,17 @@ body .container .center .face .mouth .mouth-hole {
   transform: rotate(180deg);
   z-index: -1;
 }
+@keyframes breath {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(60deg);
+  }
+}
 body .container .center .face .mouth .tongue {
   width: 30px;
   height: 20px;
@@ -123,6 +143,9 @@ body .container .center .face .mouth .tongue {
   left: -13px;
   transform: rotateX(60deg);
   transform-origin: top;
+}
+body .container .center .face .mouth .tongue.breath {
+  animation: breath 0.3s infinite;
 }
 body .container .center .face .mouth .tongue-top {
   width: 30px;
@@ -158,8 +181,26 @@ body .container .center .hands .hand {
 body .container .center .hands .hand.hand--left {
   left: 50px;
 }
+body .container .center .hands .hand.hand--left.hide {
+  transform: translate(4px, -160px) rotate(-130deg);
+}
+body .container .center .hands .hand.hand--left.peek {
+  transform: translate(-10px, -120px) rotate(-122deg);
+}
+body .container .center .hands .hand.hand--left.hang {
+  transform: translate(2px, -20px) rotate(7deg);
+}
 body .container .center .hands .hand.hand--right {
   left: 170px;
+}
+body .container .center .hands .hand.hand--right.hide {
+  transform: translate(-10px, -160px) rotate(130deg);
+}
+body .container .center .hands .hand.hand--right.peek {
+  transform: translate(4px, -120px) rotate(122deg);
+}
+body .container .center .hands .hand.hand--right.hang {
+  transform: translate(4px, -20px) rotate(-7deg);
 }
 body .container .center .hands .hand .finger {
   position: relative;
@@ -226,6 +267,9 @@ body .container .center .login label .login-button {
 body .container .center .login label input {
   padding: 0 20px 0 40px;
   margin: 5px 0;
+  -webkit-box-shadow: 19px 17px 19px -15px rgba(0, 0, 0, 0.82);
+  -moz-box-shadow: 19px 17px 19px -15px rgba(0, 0, 0, 0.82);
+  box-shadow: 19px 17px 19px -15px rgba(0, 0, 0, 0.82);
 }
 body .container .center .login label input.password {
   padding: 0 90px 0 40px;
@@ -241,6 +285,9 @@ body .container .center .login label .password-button {
   border: none;
   outline: none;
   color: #fff;
+  -webkit-box-shadow: 37px 36px 32px -11px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: 37px 36px 32px -11px rgba(0, 0, 0, 0.46);
+  box-shadow: 37px 36px 32px -11px rgba(0, 0, 0, 0.46);
 }
 body .container .center .login .login-button {
   width: calc(100% - 40px);
@@ -269,6 +316,9 @@ body .container .center .social-buttons .social {
   margin: 0 10px;
   color: #fff;
 }
+body .container .center .social-buttons .social .fa {
+  font-size: 18px;
+}
 body .container .center .social-buttons .social:active {
   transform: scale(0.95);
 }
@@ -277,6 +327,7 @@ body .container .center .footer {
   color: #fff;
   margin-top: 10px;
   font-size: 1em;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
