@@ -21,7 +21,7 @@ body{
         
         .center{
             width: 275px;
-            height: 490px;
+            height: 550px;
             background-image: linear-gradient(to top right, #f9a743, #f9db5f);
             overflow: hidden;
             position: relative;
@@ -163,7 +163,163 @@ body{
                     }
                 }
             }
+            .hands{
+                position: relative;
+                .hand{
+                    position: absolute;
+                    display: flex;
+                    z-index: 1;
+                    transition: transform .5s ease-in-out;
 
+                    &.hand--left{
+                        left: 50px;
+                    }
+
+                    &.hand--right{
+                        left: 170px;
+                    }
+
+                    .finger{
+                        position: relative;
+
+                        .bone{
+                            width: 20px;
+                            height: 20px;
+                            background-color: #fac555;
+                            border: 2px solid $dark-blue;
+                            border-top: none;
+                            border-bottom: none;
+                        }
+
+                        .nail{
+                            width: 20px;
+                            height: 18px ;
+                            background-color: #fac555;
+                            border: 2px solid $dark-blue;
+                            position: absolute;
+                            top: 10px;
+                            border-radius: 50%;
+                            z-index: -1;
+                        }
+
+                        &:nth-child(1),
+                        &:nth-child(3) {
+                            left: 4px;
+                            z-index: 1;
+
+                            .bone{
+                                height: 10px;
+                            }
+                        }
+
+                        &:nth-child(3){
+                            left: -4px;
+                        }
+
+                        &:nth-child(2){
+                            top: -5px;
+                            z-index: 2;
+                        }
+                        &:nth-child(1),
+                        &:nth-child(3){
+                            .nail{
+                                top: 0;
+                                z-index: -1;
+                            }
+                        }
+                    }
+                    // finger
+                }
+            }
+            // hands
+            .login{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+
+                label{
+                    position: relative;
+                    padding: 0 20px;
+
+                    .fa{
+                        position: absolute;
+                        top: 40%;
+                        left: 35px;
+                        color: #bbb;
+                    }
+
+                    input,
+                    .login-button{
+                        width: 100%;
+                        height: 35px;
+                        border-radius: 30px;
+                        border: none;
+                        outline: none;
+                    }
+
+                    input{
+                        padding: 0 20px 0 40px;
+                        margin: 5px 0;
+                    }
+
+                    input.password{
+                        padding: 0 90px 0 40px;
+                    }
+                    .password-button{
+                        width: 90px;
+                        height: 27px;
+                        background-color: $dark-blue;
+                        position: absolute;
+                        top: 9px;
+                        right: 25px;
+                        border-radius: 30px;
+                        border: none;
+                        outline: none;
+                        color: #fff;
+                    }
+                }
+                //  label
+                .login-button{
+                    width: calc(100% - 40px);
+                    margin: 20px 20px 0;
+                    background-color: $dark-blue;
+                    border-radius: 30px;
+                    outline: none;
+                    border: none;
+                    height: 35px;
+                    color: #fff;
+                }
+            }
+            
+            .social-buttons{
+                position: relative;
+                display: flex;
+                justify-content: center;
+                margin-top: 25px;
+
+                .social{
+                    width: 35px;
+                    height: 35px;
+                    background-color: $dark-blue;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 10px;
+                    color: #fff;
+
+                    &:active{
+                        transform: scale(.95);
+                    }
+                }
+            }
+
+            .footer{
+                text-align: center;
+                color: #fff;
+                margin-top: 10px;
+                font-size: 1em;
+            }
         }
     }
 }
